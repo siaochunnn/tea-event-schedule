@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>茶葉協會會員活動 - 互動行程</title>
+    <style>
+        /* CSS for Dark Mode and Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e; /* 深色背景 */
+            color: #ffffff; /* 淺色文字 */
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #2a2a2a; /* 卡片背景 */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            color: #58a6ff; /* 標題顏色 */
+            border-bottom: 2px solid #58a6ff;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .schedule-list {
+            list-style: none;
+            padding: 0;
+        }
+        .schedule-item {
+            background-color: #363636;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: grab; /* 拖曳提示 */
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .schedule-item:hover {
+            box-shadow: 0 0 10px rgba(88, 166, 255, 0.5); /* 懸停發光效果 */
+        }
+        /* 拖曳時的樣式 */
+        .dragging {
+            opacity: 0.5;
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.8);
+        }
+        .time {
+            font-weight: bold;
+            color: #d1d1d1;
+            min-width: 100px;
+        }
+        .content {
+            flex-grow: 1;
+        }
+        .highlight {
+            color: #a371f7; /* 重點顏色 */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>台灣茶葉感官品評發展協會 - 一日會員活動</h1>
+
+    <ul class="schedule-list" id="scheduleList">
+        <li class="schedule-item" draggable="true" data-index="0">
+            <span class="time">09:30 - 09:50</span>
+            <span class="content">報到入場（茶及飲料作物改良場 北部場）</span>
+        </li>
+        <li class="schedule-item" draggable="true" data-index="1">
+            <span class="time">09:50 - 12:00</span>
+            <span class="content"><span class="highlight">【專業實務】</span> 114年冬季文山包種茶評鑑與評審系統深度體驗</span>
+        </li>
+        <li class="schedule-item" draggable="true" data-index="2">
+            <span class="time">12:00 - 13:00</span>
+            <span class="content">午餐及準備登車</span>
+        </li>
+        <li class="schedule-item" draggable="true" data-index="3">
+            <span class="time">13:00 - 13:30</span>
+            <span class="content">車程移動</span>
+        </li>
+        <li class="schedule-item" draggable="true" data-index="4">
+            <span class="time">13:30 - 15:00</span>
+            <span class="content"><span class="highlight">【文化巡禮】</span> 新北市坪林茶業博物館 專業導覽</span>
+        </li>
+        <li class="schedule-item" draggable="true" data-index="5">
+            <span class="time">15:00 - 16:30</span>
+            <span class="content"><span class="highlight">【產業參訪】</span> 有種茶產業運銷合作社 實地交流</span>
+        </li>
+    </ul>
+</div>
+
+<script>
+    // JavaScript for Drag-and-Drop Functionality
+    const scheduleList = document.getElementById('scheduleList');
+    let draggedItem = null;
+
+    // 1. 設置拖曳開始
+    scheduleList.addEventListener('dragstart', (e) => {
+        // 確保我們只處理排程項目
+        if (e.target.classList.contains('schedule-item')) {
+            draggedItem = e.target;
+            setTimeout(() => {
+                draggedItem.classList.add('dragging'); // 添加拖曳樣式
+            }, 0);
+        }
+    });
+
+    // 2. 設置拖曳結束
+    scheduleList.addEventListener('dragend', (e) => {
+        draggedItem.classList.remove('dragging');
+        draggedItem = null;
+    });
+
+    // 3. 設置拖曳經過的區域 (避免預設行為)
+    scheduleList.addEventListener('dragover', (e) => {
+        e.preventDefault(); // 允許放下
+    });
+
+    // 4. 處理拖曳進入另一個項目上方
+    scheduleList.addEventListener('dragenter', (e) => {
+        e.preventDefault();
+        const target = e.target.closest('.schedule-item');
+
+        if (!target || target === draggedItem) return;
+
+        // 判斷拖曳是發生在目標項目的上方還是下方
+        const targetRect = target.getBoundingClientRect();
+        const middleY = targetRect.top + targetRect.height / 2;
+
+        if (e.clientY < middleY) {
+            // 拖曳到上方：將 draggedItem 插入到 target 之前
+            scheduleList.insertBefore(draggedItem, target);
+        } else {
+            // 拖曳到下方：將 draggedItem 插入到 target 之後
+            scheduleList.insertBefore(draggedItem, target.nextSibling);
+        }
+    });
+
+    // 5. 處理拖曳離開
+    scheduleList.addEventListener('dragleave', (e) => {
+        // 通常不需要特別處理
+    });
+</script>
+
+</body>
+</html>
