@@ -26,7 +26,8 @@
             border-bottom: 2px solid #b3c99e;
             padding-bottom: 10px;
             margin-bottom: 30px;
-            font-size: 1.8em; /* 手機上略微縮小標題 */
+            font-size: 1.8em;
+            text-align: center; /* 標題置中，避免手機跑版 */
         }
         .form-title {
             color: #4a772f; 
@@ -70,6 +71,8 @@
             color: #555555;
             line-height: 1.5;
         }
+        .extra-info a { color: #4a772f; text-decoration: none; }
+        
         /* 徹底修正米字號問題的清單結構樣式 */
         .extra-info ul {
             margin-top: 5px;
@@ -92,7 +95,7 @@
             font-size: 0.85em;
             transition: background-color 0.2s;
         }
-        /* 新增報名按鈕樣式 (取代 Iframe) */
+        /* 報名按鈕樣式 (取代 Iframe) */
         .register-button-container {
             text-align: center;
             padding: 20px 0;
@@ -114,25 +117,30 @@
         
         /* ============== 行動裝置優化 (Mobile Responsiveness) ============== */
         @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
             .container {
                 padding: 15px;
             }
-            .time {
-                min-width: 100%; /* 時間佔滿一行 */
-                margin-bottom: 5px; /* 與下方內容分開 */
-                margin-right: 0;
-            }
+            /* 強制卡片內容垂直堆疊 */
             .main-row {
-                flex-direction: column; /* 讓時間、內容和地圖按鈕垂直堆疊 */
+                flex-direction: column;
                 align-items: flex-start;
             }
+            .time {
+                min-width: 100%; /* 時間佔滿一行 */
+                margin-bottom: 5px;
+                margin-right: 0;
+            }
+            /* 讓地圖按鈕獨立出來，佔滿卡片底部寬度，方便點擊 */
             .map-link {
-                margin-top: 10px; /* 將地圖按鈕移到下方 */
+                margin-top: 10px; 
                 margin-left: 0;
-                width: 100%; /* 地圖按鈕佔滿寬度 */
+                width: 100%; 
             }
             .map-link a {
-                width: 100%; /* 讓按鈕實際填滿寬度 */
+                width: 100%; 
                 text-align: center;
             }
             /* 修正特展資訊在手機上跑版的問題 */
@@ -146,7 +154,7 @@
 <body>
 
 <div class="container">
-    <h1 style="text-align: center;">台灣茶葉感官品評發展協會 - 114年第三次會員活動</h1>
+    <h1>台灣茶葉感官品評發展協會 - 114年第三次會員活動</h1>
 
     <ul class="schedule-list" id="scheduleList">
         <li class="schedule-item" draggable="true" data-index="0">
