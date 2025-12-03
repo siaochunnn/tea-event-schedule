@@ -7,7 +7,7 @@
     <title>會員活動－行程與報名</title>
     
     <style>
-        /* Version 1.6 - Mobile Optimized & Title Fixed */
+        /* Version 1.7 - Mobile Optimized & ALL Content Fixed */
         /* 基礎樣式 (Light Mode) */
         body {
             font-family: 'Arial', sans-serif;
@@ -67,6 +67,8 @@
         }
         .content { flex-grow: 1; }
         .highlight { color: #935a26; font-weight: bold; }
+        
+        /* 修正特展資訊在桌面板的間距 */
         .extra-info {
             margin-top: 10px;
             padding-left: 125px;
@@ -119,6 +121,7 @@
         }
         
         /* ============== 行動裝置優化 (Mobile Responsiveness) ============== */
+        /* 針對寬度小於 600px 的螢幕進行排版修正 */
         @media (max-width: 600px) {
             body {
                 padding: 10px;
@@ -136,9 +139,15 @@
                 margin-bottom: 5px;
                 margin-right: 0;
             }
+            /* 讓內容區塊自動延伸 */
+            .content {
+                width: 100%;
+                /* 確保內容不會被按鈕擠壓 */
+                margin-bottom: 10px; 
+            }
             /* 讓地圖按鈕獨立出來，佔滿卡片底部寬度，方便點擊 */
             .map-link {
-                margin-top: 10px; 
+                margin-top: 0; /* 按鈕已在底部，無需額外上間距 */
                 margin-left: 0;
                 width: 100%; 
             }
@@ -157,7 +166,7 @@
 <body>
 
 <div class="container">
-    <h1>台灣茶葉感官品評發展協會 - 114年第三次會員活動</h1>
+    <h1>會員活動－行程與報名</h1>
 
     <ul class="schedule-list" id="scheduleList">
         <li class="schedule-item" draggable="true" data-index="0">
@@ -188,6 +197,8 @@
             <div class="main-row">
                 <span class="time">13:00 - 13:30</span>
                 <span class="content">車程移動</span>
+                <div class="map-link">
+                    </div>
             </div>
         </li>
         <li class="schedule-item" draggable="true" data-index="4">
