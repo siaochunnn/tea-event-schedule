@@ -27,11 +27,14 @@
             padding-bottom: 10px;
             margin-bottom: 30px;
         }
-        h2 {
+        /* 修正表單標題的樣式 */
+        .form-title {
             color: #4a772f; 
             margin-top: 40px; 
             border-bottom: 1px solid #b3c99e; 
             padding-bottom: 10px;
+            font-size: 1.5em; /* 保持與h1/h2一致的視覺大小 */
+            font-weight: bold;
         }
         .schedule-list {
             list-style: none;
@@ -60,12 +63,12 @@
         .main-row {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start; /* 保持地圖按鈕與文字頂部對齊 */
+            align-items: flex-start;
             width: 100%;
         }
         .time {
             font-weight: bold;
-            color: #7b5b3a; /* 棕色時間 */
+            color: #7b5b3a;
             min-width: 110px;
             margin-right: 15px;
         }
@@ -73,18 +76,18 @@
             flex-grow: 1;
         }
         .highlight {
-            color: #935a26; /* 重點顏色 (深棕色) */
+            color: #935a26;
             font-weight: bold;
         }
         .extra-info {
             margin-top: 10px;
-            padding-left: 125px; /* 與時間欄位對齊 */
+            padding-left: 125px;
             font-size: 0.9em;
             color: #555555;
             line-height: 1.5;
         }
         .extra-info a {
-            color: #4a772f; /* 連結顏色 */
+            color: #4a772f;
             text-decoration: none;
         }
         .extra-info ul {
@@ -92,13 +95,13 @@
             padding-left: 20px;
         }
         .map-link {
-            flex-shrink: 0; /* 不壓縮地圖連結 */
+            flex-shrink: 0;
             margin-left: 10px;
         }
         .map-link a {
             display: inline-block;
             padding: 5px 10px;
-            background-color: #4a772f; /* 地圖按鈕背景色 */
+            background-color: #4a772f;
             color: #ffffff;
             border-radius: 4px;
             text-decoration: none;
@@ -113,7 +116,7 @@
 <body>
 
 <div class="container">
-    <h1>台灣茶葉感官品評發展協會 - 第三次會員活動</h1>
+    <h1>台灣茶葉感官品評發展協會-114年度第三次會員活動</h1>
 
     <ul class="schedule-list" id="scheduleList">
         <li class="schedule-item" draggable="true" data-index="0">
@@ -172,7 +175,7 @@
         </li>
     </ul>
     
-    <h2 style="color: #4a772f; margin-top: 40px; border-bottom: 1px solid #b3c99e; padding-bottom: 10px;">活動報名連結</h2>
+    <div class="form-title">活動報名連結</div>
     <div style="margin-top: 20px;">
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScyvj2-QvI9s-8B2A9d2t8M1rS-yI1r1I5cI1A/viewform?embedded=true" 
             width="100%" 
