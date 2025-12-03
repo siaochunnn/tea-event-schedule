@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>茶葉協會會員活動 - 互動行程</title>
     <style>
-        /* CSS for Dark Mode and Styling */
+        /* CSS for Light Mode (淺色模式) and Styling */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #1e1e1e; /* 深色背景 */
-            color: #ffffff; /* 淺色文字 */
+            background-color: #fcfcf0; /* 淺米色背景 (與茶葉呼應) */
+            color: #333333; /* 深色文字 */
             margin: 0;
             padding: 20px;
         }
         .container {
-            max-width: 800px;
+            max-width: 850px; /* 稍微加寬以容納地圖連結 */
             margin: auto;
-            background-color: #2a2a2a; /* 卡片背景 */
+            background-color: #ffffff; /* 卡片背景 */
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            color: #58a6ff; /* 標題顏色 */
-            border-bottom: 2px solid #58a6ff;
+            color: #4a772f; /* 深綠色標題 (與茶葉呼應) */
+            border-bottom: 2px solid #b3c99e; /* 淺綠色底線 */
             padding-bottom: 10px;
             margin-bottom: 30px;
         }
@@ -32,35 +32,75 @@
             padding: 0;
         }
         .schedule-item {
-            background-color: #363636;
+            background-color: #e6f7e6; /* 淺綠色卡片背景 (與茶葉呼應) */
             margin-bottom: 15px;
             padding: 15px;
             border-radius: 8px;
             cursor: grab; /* 拖曳提示 */
             transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column; /* 允許內容垂直堆疊 */
+            align-items: flex-start;
         }
         .schedule-item:hover {
-            box-shadow: 0 0 10px rgba(88, 166, 255, 0.5); /* 懸停發光效果 */
+            box-shadow: 0 0 10px rgba(74, 119, 47, 0.3); /* 懸停發光效果 */
         }
         /* 拖曳時的樣式 */
         .dragging {
-            opacity: 0.5;
+            opacity: 0.7;
             transform: scale(1.02);
-            box-shadow: 0 0 20px rgba(88, 166, 255, 0.8);
+            box-shadow: 0 0 20px rgba(74, 119, 47, 0.5);
+        }
+        .main-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* 保持地圖按鈕與文字頂部對齊 */
+            width: 100%;
         }
         .time {
             font-weight: bold;
-            color: #d1d1d1;
-            min-width: 100px;
+            color: #7b5b3a; /* 棕色時間 */
+            min-width: 110px;
+            margin-right: 15px;
         }
         .content {
             flex-grow: 1;
         }
         .highlight {
-            color: #a371f7; /* 重點顏色 */
+            color: #935a26; /* 重點顏色 (深棕色) */
+            font-weight: bold;
+        }
+        .extra-info {
+            margin-top: 10px;
+            padding-left: 125px; /* 與時間欄位對齊 */
+            font-size: 0.9em;
+            color: #555555;
+            line-height: 1.5;
+        }
+        .extra-info a {
+            color: #4a772f; /* 連結顏色 */
+            text-decoration: none;
+        }
+        .extra-info ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+        .map-link {
+            flex-shrink: 0; /* 不壓縮地圖連結 */
+            margin-left: 10px;
+        }
+        .map-link a {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #4a772f; /* 地圖按鈕背景色 */
+            color: #ffffff;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85em;
+            transition: background-color 0.2s;
+        }
+        .map-link a:hover {
+            background-color: #3b5f25;
         }
     </style>
 </head>
@@ -71,44 +111,74 @@
 
     <ul class="schedule-list" id="scheduleList">
         <li class="schedule-item" draggable="true" data-index="0">
-            <span class="time">09:30 - 09:50</span>
-            <span class="content">報到入場（茶及飲料作物改良場 北部場）</span>
+            <div class="main-row">
+                <span class="time">09:30 - 09:50</span>
+                <span class="content">報到入場（茶及飲料作物改良場 北部分場）</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/Sn6G5iVn87fxwuey7" target="_blank">Google 地圖</a>
+                </div>
+            </div>
         </li>
         <li class="schedule-item" draggable="true" data-index="1">
-            <span class="time">09:50 - 12:00</span>
-            <span class="content"><span class="highlight">【專業實務】</span> 114年冬季文山包種茶評鑑與評審系統深度體驗</span>
+            <div class="main-row">
+                <span class="time">09:50 - 12:00</span>
+                <span class="content"><span class="highlight">【專業實務】</span> 114年冬季文山包種茶評鑑與評審系統深度體驗</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/Sn6G5iVn87fxwuey7" target="_blank">Google 地圖</a>
+                </div>
+            </div>
         </li>
         <li class="schedule-item" draggable="true" data-index="2">
-            <span class="time">12:00 - 13:00</span>
-            <span class="content">午餐及準備登車</span>
+            <div class="main-row">
+                <span class="time">12:00 - 13:00</span>
+                <span class="content">午餐及準備登車</span>
+            </div>
         </li>
         <li class="schedule-item" draggable="true" data-index="3">
-            <span class="time">13:00 - 13:30</span>
-            <span class="content">車程移動</span>
+            <div class="main-row">
+                <span class="time">13:00 - 13:30</span>
+                <span class="content">車程移動</span>
+            </div>
         </li>
         <li class="schedule-item" draggable="true" data-index="4">
-            <span class="time">13:30 - 15:00</span>
-            <span class="content"><span class="highlight">【文化巡禮】</span> 新北市坪林茶業博物館 專業導覽</span>
+            <div class="main-row">
+                <span class="time">13:30 - 15:00</span>
+                <span class="content"><span class="highlight">【文化巡禮】</span> 新北市坪林茶業博物館 專業導覽</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/VU9d5KkBSG34tmz58" target="_blank">Google 地圖</a>
+                </div>
+            </div>
+            <div class="extra-info">
+                **特展資訊：**
+                <ul>
+                    <li>**【茶與王】** <a href="https://www.tea.ntpc.gov.tw/xmdoc/cont?xsmsid=0G266543806125384210&sid=0P290615508432243722" target="_blank">(前往簡介)</a></li>
+                    <li>**【烹茶煨鴨腳－茶食文化】** <a href="https://www.tea.ntpc.gov.tw/xmdoc/cont?xsmsid=0G266543806125384210&sid=0O200320144010107466" target="_blank">(前往簡介)</a></li>
+                </ul>
+            </div>
         </li>
         <li class="schedule-item" draggable="true" data-index="5">
-            <span class="time">15:00 - 16:30</span>
-            <span class="content"><span class="highlight">【產業參訪】</span> 有種茶產業運銷合作社 實地交流</span>
+            <div class="main-row">
+                <span class="time">15:00 - 16:30</span>
+                <span class="content"><span class="highlight">【產業參訪】</span> 有種茶產業運銷合作社 實地交流</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/GN3yPPcDQaWRTDZx6" target="_blank">Google 地圖</a>
+                </div>
+            </div>
         </li>
     </ul>
 </div>
 
 <script>
-    // JavaScript for Drag-and-Drop Functionality
+    // JavaScript for Drag-and-Drop Functionality (保持不變)
     const scheduleList = document.getElementById('scheduleList');
     let draggedItem = null;
 
     // 1. 設置拖曳開始
     scheduleList.addEventListener('dragstart', (e) => {
-        // 確保我們只處理排程項目
         if (e.target.classList.contains('schedule-item')) {
             draggedItem = e.target;
             setTimeout(() => {
-                draggedItem.classList.add('dragging'); // 添加拖曳樣式
+                draggedItem.classList.add('dragging');
             }, 0);
         }
     });
@@ -119,9 +189,9 @@
         draggedItem = null;
     });
 
-    // 3. 設置拖曳經過的區域 (避免預設行為)
+    // 3. 設置拖曳經過的區域
     scheduleList.addEventListener('dragover', (e) => {
-        e.preventDefault(); // 允許放下
+        e.preventDefault();
     });
 
     // 4. 處理拖曳進入另一個項目上方
@@ -131,15 +201,12 @@
 
         if (!target || target === draggedItem) return;
 
-        // 判斷拖曳是發生在目標項目的上方還是下方
         const targetRect = target.getBoundingClientRect();
         const middleY = targetRect.top + targetRect.height / 2;
 
         if (e.clientY < middleY) {
-            // 拖曳到上方：將 draggedItem 插入到 target 之前
             scheduleList.insertBefore(draggedItem, target);
         } else {
-            // 拖曳到下方：將 draggedItem 插入到 target 之後
             scheduleList.insertBefore(draggedItem, target.nextSibling);
         }
     });
