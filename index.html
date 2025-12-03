@@ -6,8 +6,12 @@
     
     <title>會員活動－行程與報名</title>
     
+    <meta property="og:title" content="會員活動－行程與報名">
+    <meta property="og:description" content="台灣茶葉感官品評發展協會 114年第三次會員活動行程與報名資訊">
+    <meta property="og:type" content="website">
+    
     <style>
-        /* Version 1.7 - Mobile Optimized & ALL Content Fixed */
+        /* Version 1.8 - Final Fixes: OG Tags, Mobile Optimized & All Content Fixed */
         /* 基礎樣式 (Light Mode) */
         body {
             font-family: 'Arial', sans-serif;
@@ -67,8 +71,6 @@
         }
         .content { flex-grow: 1; }
         .highlight { color: #935a26; font-weight: bold; }
-        
-        /* 修正特展資訊在桌面板的間距 */
         .extra-info {
             margin-top: 10px;
             padding-left: 125px;
@@ -78,7 +80,7 @@
         }
         .extra-info a { color: #4a772f; text-decoration: none; }
         
-        /* 徹底修正米字號問題的清單結構樣式 */
+        /* 修正清單結構，確保米字號不出現 */
         .extra-info ul {
             margin-top: 5px;
             padding-left: 20px;
@@ -121,7 +123,6 @@
         }
         
         /* ============== 行動裝置優化 (Mobile Responsiveness) ============== */
-        /* 針對寬度小於 600px 的螢幕進行排版修正 */
         @media (max-width: 600px) {
             body {
                 padding: 10px;
@@ -142,12 +143,11 @@
             /* 讓內容區塊自動延伸 */
             .content {
                 width: 100%;
-                /* 確保內容不會被按鈕擠壓 */
                 margin-bottom: 10px; 
             }
             /* 讓地圖按鈕獨立出來，佔滿卡片底部寬度，方便點擊 */
             .map-link {
-                margin-top: 0; /* 按鈕已在底部，無需額外上間距 */
+                margin-top: 0; 
                 margin-left: 0;
                 width: 100%; 
             }
