@@ -11,7 +11,7 @@
     <meta property="og:type" content="website">
     
     <style>
-        /* Version 2.1 - FINAL ALL FIXES: Shuttle Time Added */
+        /* Version 2.2 - FINAL: Registration Link Removed */
         /* 基礎樣式 (Light Mode) */
         body {
             font-family: 'Arial', sans-serif;
@@ -36,7 +36,7 @@
             font-size: 1.8em;
             text-align: center; /* 標題置中，避免手機跑版 */
         }
-        .section-title { /* 用於「接駁地點」和「報名連結」標題 */
+        .section-title { /* 用於「接駁地點」標題 */
             color: #4a772f; 
             margin-top: 40px; 
             border-bottom: 1px solid #b3c99e; 
@@ -100,37 +100,23 @@
             font-size: 0.85em;
             transition: background-color 0.2s;
         }
-        /* 報名按鈕樣式 */
+        /* 報名按鈕樣式 (已移除，但保留相關樣式避免CSS報錯) */
         .register-button-container {
             text-align: center;
             padding: 20px 0;
-        }
-        .register-button {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #4a772f;
-            color: #ffffff;
-            font-size: 1.1em;
-            font-weight: bold;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background-color 0.2s;
-        }
-        .register-button:hover {
-            background-color: #3b5f25;
+            /* 這個區塊現在是空的，但保留樣式 */
         }
         
         /* ============== 行動裝置優化 (Mobile Responsiveness) ============== */
         @media (max-width: 600px) {
             body { padding: 10px; }
             .container { padding: 15px; }
-            /* 強制卡片內容垂直堆疊 */
             .main-row {
                 flex-direction: column;
                 align-items: flex-start;
             }
             .time {
-                min-width: 100%; /* 時間/地點名稱 佔滿一行 */
+                min-width: 100%;
                 margin-bottom: 5px;
                 margin-right: 0;
             }
@@ -219,7 +205,7 @@
         </li>
     </ul>
 
-    <div class="section-title">接駁地點 (請準時集合)</div>
+    <div class="section-title">接駁集合時間＆地點</div>
     <ul class="schedule-list">
         <li class="schedule-item">
             <div class="main-row">
@@ -249,14 +235,7 @@
             </div>
         </li>
     </ul>
-    
-    <div class="section-title">活動報名連結</div>
-    <div class="register-button-container">
-        <a href="https://forms.gle/vGjyiXxmrFSiSG3XA" target="_blank" class="register-button">
-            點擊前往報名表單
-        </a>
     </div>
-</div>
 
 <script>
     // JavaScript for Drag-and-Drop Functionality (保持不變)
