@@ -11,7 +11,7 @@
     <meta property="og:type" content="website">
     
     <style>
-        /* Version 2.3 - FINAL: Notes Section Added */
+        /* Version 2.5 - FINAL: Image Path Corrected */
         /* 基礎樣式 (Light Mode) */
         body {
             font-family: 'Arial', sans-serif;
@@ -28,15 +28,29 @@
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
+        /* 新增圖片容器樣式 */
+        .image-container {
+            width: 100%;
+            margin-bottom: 25px;
+            overflow: hidden; /* 防止圖片溢出容器 */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .image-container img {
+            width: 100%; /* 確保圖片在任何螢幕上都填滿寬度 */
+            height: auto;
+            display: block;
+        }
+
         h1 {
             color: #4a772f;
             border-bottom: 2px solid #b3c99e;
             padding-bottom: 10px;
             margin-bottom: 30px;
             font-size: 1.8em;
-            text-align: center; /* 標題置中，避免手機跑版 */
+            text-align: center;
         }
-        .section-title { /* 用於「接駁地點」和「備註」標題 */
+        .section-title { /* 用於各區塊標題 */
             color: #4a772f; 
             margin-top: 40px; 
             border-bottom: 1px solid #b3c99e; 
@@ -100,12 +114,11 @@
             font-size: 0.85em;
             transition: background-color 0.2s;
         }
-
-        /* 新增備註區塊樣式 */
+        /* 備註區塊樣式 */
         .notes-list {
             margin-top: 20px;
             padding: 15px 20px;
-            background-color: #fff8e6; /* 淺黃色背景突顯注意事項 */
+            background-color: #fff8e6;
             border: 1px dashed #e0c48e;
             border-radius: 8px;
             line-height: 1.8;
@@ -123,11 +136,12 @@
             font-weight: bold;
             color: #935a26;
         }
-
+        
         /* ============== 行動裝置優化 (Mobile Responsiveness) ============== */
         @media (max-width: 600px) {
             body { padding: 10px; }
             .container { padding: 15px; }
+            /* 強制卡片內容垂直堆疊 */
             .main-row {
                 flex-direction: column;
                 align-items: flex-start;
@@ -154,7 +168,6 @@
                 padding-left: 0; 
                 margin-top: 15px;
             }
-            /* 修正備註區塊手機顯示 */
             .notes-list {
                 padding: 15px;
             }
@@ -164,6 +177,10 @@
 <body>
 
 <div class="container">
+    <div class="image-container">
+        <img src="新增少量內文文字 (4).png" alt="台灣茶葉感官品評發展協會 年度最終交流盛會 宣傳圖">
+    </div>
+
     <h1>會員活動－行程與報名</h1>
 
     <ul class="schedule-list" id="scheduleList">
@@ -262,10 +279,10 @@
         <ul>
             <li><span class="note-title">活動費用：</span>活動當天請攜帶相關費用：非會員費用為1,000元（車資另計）；若有搭乘接駁車，車資為500元。</li>
             <li><span class="note-title">自備用品：</span>茶水、茶飲杯、文具、雨具。</li>
-            <li><span class="note-title">服裝建議：</span>建議保暖的**洋蔥式穿搭**。</li>
+            <li><span class="note-title">服裝建議：</span>建議保暖的洋蔥式穿搭。</li>
         </ul>
     </div>
-    </div>
+</div>
 
 <script>
     // JavaScript for Drag-and-Drop Functionality (保持不變)
