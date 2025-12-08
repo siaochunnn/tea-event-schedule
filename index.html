@@ -11,7 +11,7 @@
     <meta property="og:type" content="website">
     
     <style>
-        /* Version 1.9 - FINAL ALL FIXES: OG Tags, Mobile Optimized & Content Cleaned */
+        /* Version 2.0 - FINAL ALL FIXES: OG Tags, Mobile Optimized & Shuttle Added */
         /* 基礎樣式 (Light Mode) */
         body {
             font-family: 'Arial', sans-serif;
@@ -36,7 +36,7 @@
             font-size: 1.8em;
             text-align: center; /* 標題置中，避免手機跑版 */
         }
-        .form-title {
+        .section-title { /* 新增樣式類別，用於「接駁地點」和「報名連結」標題 */
             color: #4a772f; 
             margin-top: 40px; 
             border-bottom: 1px solid #b3c99e; 
@@ -79,8 +79,6 @@
             line-height: 1.5;
         }
         .extra-info a { color: #4a772f; text-decoration: none; }
-        
-        /* 修正清單結構，確保米字號不出現 */
         .extra-info ul {
             margin-top: 5px;
             padding-left: 20px;
@@ -124,28 +122,22 @@
         
         /* ============== 行動裝置優化 (Mobile Responsiveness) ============== */
         @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 15px;
-            }
+            body { padding: 10px; }
+            .container { padding: 15px; }
             /* 強制卡片內容垂直堆疊 */
             .main-row {
                 flex-direction: column;
                 align-items: flex-start;
             }
             .time {
-                min-width: 100%; /* 時間佔滿一行 */
+                min-width: 100%; /* 時間/地點名稱 佔滿一行 */
                 margin-bottom: 5px;
                 margin-right: 0;
             }
-            /* 讓內容區塊自動延伸 */
             .content {
                 width: 100%;
                 margin-bottom: 10px; 
             }
-            /* 讓地圖按鈕獨立出來，佔滿卡片底部寬度，方便點擊 */
             .map-link {
                 margin-top: 0; 
                 margin-left: 0;
@@ -227,8 +219,38 @@
             </div>
         </li>
     </ul>
-    
-    <div class="form-title">活動報名連結</div>
+
+    <div class="section-title">接駁地點</div>
+    <ul class="schedule-list">
+        <li class="schedule-item">
+            <div class="main-row">
+                <span class="time">嘉義</span>
+                <span class="content">製茶工會</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/xayNHSyBjquctVvFA" target="_blank">Google 地圖</a>
+                </div>
+            </div>
+        </li>
+        <li class="schedule-item">
+            <div class="main-row">
+                <span class="time">南投</span>
+                <span class="content">全家名間金交流店</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/XkSCiuYTSVArky7CA" target="_blank">Google 地圖</a>
+                </div>
+            </div>
+        </li>
+        <li class="schedule-item">
+            <div class="main-row">
+                <span class="time">台中</span>
+                <span class="content">新信宏汽車商行（靠近清泉崗機場）</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/7n2uN1N16X1PoRLA8" target="_blank">Google 地圖</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="section-title">活動報名連結</div>
     <div class="register-button-container">
         <a href="https://forms.gle/vGjyiXxmrFSiSG3XA" target="_blank" class="register-button">
             點擊前往報名表單
