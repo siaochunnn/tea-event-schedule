@@ -127,4 +127,194 @@
         /* ============== 行動裝置優化 (Mobile Responsiveness) ============== */
         @media (max-width: 600px) {
             body { padding: 10px; }
-            .container { padding: 15px
+            .container { padding: 15px; }
+            .main-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .time {
+                min-width: 100%;
+                margin-bottom: 5px;
+                margin-right: 0;
+            }
+            .content {
+                width: 100%;
+                margin-bottom: 10px; 
+            }
+            .map-link {
+                margin-top: 0; 
+                margin-left: 0;
+                width: 100%; 
+            }
+            .map-link a {
+                width: 100%; 
+                text-align: center;
+            }
+            .extra-info {
+                padding-left: 0; 
+                margin-top: 15px;
+            }
+            /* 修正備註區塊手機顯示 */
+            .notes-list {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>會員活動－行程與報名</h1>
+
+    <ul class="schedule-list" id="scheduleList">
+        <li class="schedule-item" draggable="true" data-index="0">
+            <div class="main-row">
+                <span class="time">09:30 - 09:50</span>
+                <span class="content">報到入場（茶及飲料作物改良場 北部分場）</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/Sn6G5iVn87fxwuey7" target="_blank">Google 地圖</a>
+                </div>
+            </div>
+        </li>
+        <li class="schedule-item" draggable="true" data-index="1">
+            <div class="main-row">
+                <span class="time">09:50 - 12:00</span>
+                <span class="content"><span class="highlight">【專業實務】</span> 114年冬季文山包種茶評鑑與評審系統深度體驗</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/Sn6G5iVn87fxwuey7" target="_blank">Google 地圖</a>
+                </div>
+            </div>
+        </li>
+        <li class="schedule-item" draggable="true" data-index="2">
+            <div class="main-row">
+                <span class="time">12:00 - 13:00</span>
+                <span class="content">午餐及準備登車</span>
+            </div>
+        </li>
+        <li class="schedule-item" draggable="true" data-index="3">
+            <div class="main-row">
+                <span class="time">13:00 - 13:30</span>
+                <span class="content">車程移動</span>
+                <div class="map-link">
+                    </div>
+            </div>
+        </li>
+        <li class="schedule-item" draggable="true" data-index="4">
+            <div class="main-row">
+                <span class="time">13:30 - 15:00</span>
+                <span class="content"><span class="highlight">【文化巡禮】</span> 新北市坪林茶業博物館 專業導覽</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/VU9d5KkBSG34tmz58" target="_blank">Google 地圖</a>
+                </div>
+            </div>
+            <div class="extra-info">
+                <span style="font-weight: bold;">特展資訊：</span>
+                <ul>
+                    <li>【茶與王】 <a href="https://www.tea.ntpc.gov.tw/xmdoc/cont?xsmsid=0G266543806125384210&sid=0P290615508432243722" target="_blank">(前往簡介)</a></li>
+                    <li>【烹茶煨鴨腳－茶食文化】 <a href="https://www.tea.ntpc.gov.tw/xmdoc/cont?xsmsid=0G266543806125384210&sid=0O200320144010107466" target="_blank">(前往簡介)</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="schedule-item" draggable="true" data-index="5">
+            <div class="main-row">
+                <span class="time">15:00 - 16:30</span>
+                <span class="content"><span class="highlight">【產業參訪】</span> 有種茶產業運銷合作社 實地交流</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/GN3yPPcDQaWRTDZx6" target="_blank">Google 地圖</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <div class="section-title">接駁地點 (請準時集合)</div>
+    <ul class="schedule-list">
+        <li class="schedule-item">
+            <div class="main-row">
+                <span class="time">05:30</span>
+                <span class="content">嘉義：製茶工會</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/xayNHSyBjquctVvFA" target="_blank">Google 地圖</a>
+                </div>
+            </div>
+        </li>
+        <li class="schedule-item">
+            <div class="main-row">
+                <span class="time">06:10</span>
+                <span class="content">南投：全家名間金交流店</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/XkSCiuYTSVArky7CA" target="_blank">Google 地圖</a>
+                </div>
+            </div>
+        </li>
+        <li class="schedule-item">
+            <div class="main-row">
+                <span class="time">06:50</span>
+                <span class="content">台中：新信宏汽車商行（靠近清泉崗機場）</span>
+                <div class="map-link">
+                    <a href="https://maps.app.goo.gl/7n2uN1N16X1PoRLA8" target="_blank">Google 地圖</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <div class="section-title">備註與注意事項</div>
+    <div class="notes-list">
+        <ul>
+            <li><span class="note-title">活動費用：</span>活動當天請攜帶相關費用：非會員費用為**1,000元**（車資另計）；若有搭乘接駁車，車資為**500元**。</li>
+            <li><span class="note-title">自備用品：</span>茶水、茶飲杯、文具、雨具。</li>
+            <li><span class="note-title">服裝建議：</span>建議保暖的**洋蔥式穿搭**。</li>
+        </ul>
+    </div>
+    </div>
+
+<script>
+    // JavaScript for Drag-and-Drop Functionality (保持不變)
+    const scheduleList = document.getElementById('scheduleList');
+    let draggedItem = null;
+
+    // 1. 設置拖曳開始
+    scheduleList.addEventListener('dragstart', (e) => {
+        if (e.target.classList.contains('schedule-item')) {
+            draggedItem = e.target;
+            setTimeout(() => {
+                draggedItem.classList.add('dragging');
+            }, 0);
+        }
+    });
+
+    // 2. 設置拖曳結束
+    scheduleList.addEventListener('dragend', (e) => {
+        draggedItem.classList.remove('dragging');
+        draggedItem = null;
+    });
+
+    // 3. 設置拖曳經過的區域
+    scheduleList.addEventListener('dragover', (e) => {
+        e.preventDefault();
+    });
+
+    // 4. 處理拖曳進入另一個項目上方
+    scheduleList.addEventListener('dragenter', (e) => {
+        e.preventDefault();
+        const target = e.target.closest('.schedule-item');
+
+        if (!target || target === draggedItem) return;
+
+        const targetRect = target.getBoundingClientRect();
+        const middleY = targetRect.top + targetRect.height / 2;
+
+        if (e.clientY < middleY) {
+            scheduleList.insertBefore(draggedItem, target);
+        } else {
+            scheduleList.insertBefore(draggedItem, target.nextSibling);
+        }
+    });
+
+    // 5. 處理拖曳離開
+    scheduleList.addEventListener('dragleave', (e) => {
+        // 通常不需要特別處理
+    });
+</script>
+
+</body>
+</html>
