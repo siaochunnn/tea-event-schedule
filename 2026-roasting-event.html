@@ -6,15 +6,17 @@
     
     <title>第一屆第四次會員大會暨傳統焙茶體驗</title>
     
+    <!-- Open Graph Meta Tags (分享連結時顯示的預覽資訊) -->
     <meta property="og:title" content="第一屆第四次會員大會暨傳統焙茶體驗">
     <meta property="og:description" content="活動日期：115年2月4日 | 講師：張清福師傅、北部分場講師">
     <meta property="og:type" content="website">
     
     <style>
+        /* Version 3.0 - Gold Theme & Shuttle Times Added */
         /* 基礎樣式 (網頁版) */
         body {
-            font-family: "Microsoft JhengHei", Arial, sans-serif;
-            background-color: #fcfcf0;
+            font-family: "Microsoft JhengHei", "Heiti TC", Arial, sans-serif;
+            background-color: #faf8f2; /* 極淺的米金色背景 */
             color: #333;
             margin: 0;
             padding: 20px;
@@ -26,7 +28,9 @@
             background-color: #ffffff;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            /* 金色陰影效果 */
+            box-shadow: 0 4px 15px rgba(228, 195, 117, 0.25);
+            border-top: 6px solid #e4c375; /* 頂部金色裝飾條 */
         }
 
         /* 圖片容器 (若之後有新圖片，可直接放入) */
@@ -35,8 +39,8 @@
             margin-bottom: 25px;
             border-radius: 8px;
             overflow: hidden;
-            background-color: #eee; /* 暫位背景色 */
-            display: none; /* 目前隱藏，若有圖片請移除此行 */
+            background-color: #f0e6d2; /* 暫位背景色 */
+            display: none; /* 若有圖片請移除此行 */
         }
         .image-container img {
             width: 100%;
@@ -45,8 +49,8 @@
         }
 
         h1 {
-            color: #4a772f; /* 茶綠色 */
-            border-bottom: 2px solid #b3c99e;
+            color: #9c7c34; /* 深金色，確保文字清晰 */
+            border-bottom: 2px solid #e4c375;
             padding-bottom: 10px;
             margin-bottom: 20px;
             font-size: 1.8em;
@@ -58,37 +62,44 @@
             margin-bottom: 30px;
             color: #555;
             font-size: 1.1em;
-            background-color: #f9f9f9;
+            background-color: #fffbf0; /* 淺金黃色背景 */
             padding: 15px;
             border-radius: 8px;
+            border: 1px solid #e4c375;
         }
         .event-info strong {
-            color: #4a772f;
+            color: #b08d45;
         }
 
         .section-title {
-            color: #4a772f;
-            margin-top: 30px;
-            border-bottom: 1px solid #b3c99e;
+            color: #b08d45; /* 標題使用深金色 */
+            margin-top: 35px;
+            border-bottom: 1px solid #e4c375;
             padding-bottom: 10px;
             font-size: 1.4em;
             font-weight: bold;
         }
 
-        /* 行程列表樣式 (卡片式) */
+        /* 行程列表樣式 */
         .schedule-list { list-style: none; padding: 0; }
         .schedule-item {
-            background-color: #e6f7e6;
+            background-color: #fdfaf2; /* 非常淡的米色 */
             margin-bottom: 15px;
             padding: 15px;
             border-radius: 8px;
             display: flex;
             justify-content: space-between;
-            align-items: center; /* 垂直置中 */
+            align-items: center;
+            border-left: 4px solid #e4c375; /* 左側金色裝飾線 */
+            transition: transform 0.2s;
+        }
+        .schedule-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(228, 195, 117, 0.2);
         }
         .time {
             font-weight: bold;
-            color: #7b5b3a; /* 深褐色 */
+            color: #9c7c34; /* 深金色時間 */
             min-width: 130px;
             margin-right: 15px;
         }
@@ -101,8 +112,8 @@
         .notes-list {
             margin-top: 20px;
             padding: 20px;
-            background-color: #fff8e6;
-            border: 1px dashed #e0c48e;
+            background-color: #fff;
+            border: 1px dashed #e4c375; /* 金色虛線邊框 */
             border-radius: 8px;
         }
         .notes-list ul {
@@ -126,73 +137,125 @@
         .register-button {
             display: inline-block;
             padding: 15px 40px;
-            background-color: #4a772f;
-            color: white;
+            background-color: #e4c375; /* 主色調金色 */
+            color: #fff;
             text-decoration: none;
             font-size: 1.2em;
             font-weight: bold;
             border-radius: 50px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            transition: background 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+            transition: background 0.3s, transform 0.1s;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.1);
         }
         .register-button:hover {
-            background-color: #385c24;
+            background-color: #d4b05e; /* 滑鼠懸停變深一點 */
+            transform: translateY(-2px);
         }
 
         /* 連結樣式 */
         .map-link a {
-            color: #4a772f;
+            color: #b08d45;
             text-decoration: none;
-            border: 1px solid #4a772f;
-            padding: 2px 8px;
+            border: 1px solid #e4c375;
+            padding: 3px 10px;
             border-radius: 4px;
             font-size: 0.9em;
+            background-color: white;
+            display: inline-block;
+            margin-top: 5px;
+            transition: all 0.2s;
+        }
+        .map-link a:hover {
+            background-color: #e4c375;
+            color: white;
         }
 
-        /* 列印按鈕 (網頁顯示，列印隱藏) */
+        /* 列印按鈕 */
         .print-btn-container {
             text-align: right;
             margin-bottom: 10px;
         }
         .btn-print {
-            background-color: #666;
+            background-color: #999;
             color: white;
             border: none;
             padding: 5px 15px;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 0.9em;
+        }
+        .btn-print:hover {
+            background-color: #777;
         }
 
         /* ============== 行動裝置優化 ============== */
         @media (max-width: 600px) {
             body { padding: 10px; }
             .container { padding: 15px; }
+            
             .schedule-item {
                 flex-direction: column;
                 align-items: flex-start;
             }
             .time {
                 margin-bottom: 5px;
-                color: #4a772f;
+                color: #b08d45;
                 font-size: 1.1em;
+                width: 100%;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 5px;
+                margin-bottom: 8px;
+            }
+            .map-link {
+                margin-top: 8px;
+                display: block;
+                width: 100%;
+            }
+            .map-link a {
+                display: block;
+                text-align: center;
+                width: 100%;
+                box-sizing: border-box;
             }
         }
 
         /* ============== 列印專用樣式 (A4) ============== */
         @media print {
             body { background: white; padding: 0; }
-            .container { box-shadow: none; border: none; max-width: 100%; width: 100%; padding: 0; }
-            .no-print, .register-container, .print-btn-container { display: none; } /* 隱藏按鈕 */
+            .container { 
+                box-shadow: none; 
+                border: none; 
+                max-width: 100%; 
+                width: 100%; 
+                padding: 0; 
+            }
+            .no-print, .register-container, .print-btn-container { display: none; }
             
-            h1 { font-size: 20pt; border-bottom: 2px solid #000; margin-bottom: 10px; color: #000; }
-            .section-title { font-size: 14pt; border-bottom: 1px solid #000; margin-top: 20px; color: #000; }
+            h1 { 
+                font-size: 20pt; 
+                border-bottom: 2px solid #000; 
+                margin-bottom: 10px; 
+                color: #000; 
+            }
+            .section-title { 
+                font-size: 14pt; 
+                border-bottom: 1px solid #000; 
+                margin-top: 20px; 
+                color: #000; 
+            }
+            .event-info { 
+                border: 1px solid #000; 
+                background: none; 
+                color: #000; 
+            }
             
-            /* 表格化行程，列印更整齊 */
             .schedule-list { display: table; width: 100%; border-collapse: collapse; }
             .schedule-item { 
                 display: table-row; 
                 background-color: white !important; 
-                border-bottom: 1px solid #ddd;
+                border-bottom: 1px solid #ccc;
+                border-left: none;
+                box-shadow: none;
                 padding: 0; margin: 0;
             }
             .time { 
@@ -201,6 +264,8 @@
                 padding: 5px; 
                 border-bottom: 1px solid #ccc; 
                 color: #000;
+                font-weight: bold;
+                vertical-align: top;
             }
             .content { 
                 display: table-cell; 
@@ -209,27 +274,25 @@
                 color: #000;
             }
             
-            .map-link a { border: none; text-decoration: underline; color: #000; }
-            .event-info { background: none; border: 1px solid #ccc; padding: 10px; color: #000; }
-            .notes-list { border: 1px solid #000; background: none; color: #000; }
-            .highlight-red { color: #000; font-weight: bold; text-decoration: underline; }
-            
             a { text-decoration: none; color: #000; }
-            /* 顯示連結網址方便紙本閱讀 */
-            a[href]:after { content: " (" attr(href) ")"; font-size: 0.8em; }
-            .map-link a:after { content: ""; } /* 地圖連結不顯示長網址 */
+            .map-link a { border: none; padding: 0; }
+            .highlight-red { color: #000; text-decoration: underline; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <!-- 列印按鈕 -->
     <div class="print-btn-container no-print">
         <button class="btn-print" onclick="window.print()">🖨️ 列印此頁 / 存為 PDF</button>
     </div>
 
+    <!-- 圖片區塊 (預留) -->
     <div class="image-container">
-        </div>
+        <!-- 若有新海報，請上傳到 GitHub 並取消下行註解，修改檔名 -->
+        <!-- <img src="您的新圖片.jpg" alt="活動宣傳圖"> -->
+    </div>
 
     <h1>第一屆第四次會員大會<br>暨傳統焙茶體驗</h1>
 
@@ -274,19 +337,28 @@
         </li>
     </ul>
 
-    <div class="section-title">🚌 接駁資訊</div>
+    <div class="section-title">🚌 接駁資訊 (請準時集合)</div>
     <ul class="schedule-list">
         <li class="schedule-item">
-            <span class="time">嘉義接駁點</span>
-            <span class="content map-link"><a href="https://maps.app.goo.gl/xayNHSyBjquctVvFA" target="_blank">查看地圖</a></span>
+            <span class="time">05:30</span>
+            <span class="content">
+                <strong>嘉義接駁點</strong><br>地點：製茶工會<br>
+                <span class="map-link"><a href="https://maps.app.goo.gl/xayNHSyBjquctVvFA" target="_blank">📍 查看地圖</a></span>
+            </span>
         </li>
         <li class="schedule-item">
-            <span class="time">南投接駁點</span>
-            <span class="content map-link"><a href="https://maps.app.goo.gl/XkSCiuYTSVArky7CA" target="_blank">查看地圖</a></span>
+            <span class="time">06:10</span>
+            <span class="content">
+                <strong>南投接駁點</strong><br>地點：全家名間金交流店<br>
+                <span class="map-link"><a href="https://maps.app.goo.gl/XkSCiuYTSVArky7CA" target="_blank">📍 查看地圖</a></span>
+            </span>
         </li>
         <li class="schedule-item">
-            <span class="time">台中接駁點</span>
-            <span class="content map-link"><a href="https://maps.app.goo.gl/7n2uN1N16X1PoRLA8" target="_blank">查看地圖</a></span>
+            <span class="time">06:50</span>
+            <span class="content">
+                <strong>台中接駁點</strong><br>地點：新信宏汽車商行<br><small>(靠近清泉崗機場)</small><br>
+                <span class="map-link"><a href="https://maps.app.goo.gl/7n2uN1N16X1PoRLA8" target="_blank">📍 查看地圖</a></span>
+            </span>
         </li>
     </ul>
 
